@@ -11,11 +11,7 @@ import socket
 import paho.mqtt.pulish as publish 
 
 def on_connect(client, userdata, flags, rc): 
-    if rc==0: 
-        print ("Subscriber Connection status code: "+str(rc)+" | Connection status: successful") 
-    else : 
-        print("Connection unsuccessful! (Result code " + str(rc) + ": " + RESULT_CODES[rc] + ")") 
-        client.disconnect() 
+    print ("Subscriber Connection status code: "+connack_string(rc)) 
 
 def on_publish(client, userdata, mid):
     print(client, userdata, mid)
